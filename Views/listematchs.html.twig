@@ -1,0 +1,42 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+    <table class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Scores</th>
+                <th>Commentaire</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for match in matchs %}
+                <tr>
+					<form action="?action=valider_commentaire" method="post">
+                    <td>{{ match.nom_match }}</td>
+                    <td>{{ match.buts_marques_EH }} - {{ match.buts_marques_EV }}</td>
+                    <td>
+                        <input type="text" name="commentaires[{{ commentaires.idcommentaire }}]" class="form-control" placeholder="Saisir un commentaire">
+                    </td>
+                    <td>
+                        <button type="submit" name="id_matchs" value="{{ match.id_matchs }}" class="btn btn-primary btn-sm">Valider</button>
+                    </td>
+					</form>
+                </tr>
+                <!-- Affichage des commentaires sous chaque match -->
+                {% for commentaire in commentaires %}
+                    {% if commentaire.id_match == matchs.id_matchs %}
+                        <tr>
+                            <td colspan="4">
+                                <div class="commentaire">
+                                    <strong>Commentaire :</strong> {{ commentaire.contenu }}
+                                </div>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

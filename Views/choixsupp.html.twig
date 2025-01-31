@@ -1,0 +1,18 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+   <form method="post" action="index.php?action=valider_choixsupp_equipe" class="well">
+       <fieldset>
+           <legend>Quelle équipe voulez-vous supprimer?</legend>
+           <select name="id_equipe" class="form-control form-control-sm">
+               {% for equipes in equipes %}
+                   <option value="{{ equipes.id_equipe }}">{{ equipes.nom }}</option>
+               {% else %}
+                    <option disabled>Aucun match disponible</option>
+               {% endfor %}
+           </select>
+           <input type="submit" name="valider_choixsupp_equipe" value="supprimer" />
+       </fieldset>
+   </form>
+
+{% endblock %}

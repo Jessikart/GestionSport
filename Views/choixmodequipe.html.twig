@@ -1,0 +1,18 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+   <form method="post" action="index.php?action=mod_equipe" class="well">
+       <fieldset>
+           <legend>Faites votre choix</legend>
+           <select name="id_equipe" class="form-control form-control-sm">
+               {% for equipes in equipes %}
+                   <option value="{{ equipes.id_equipe }}">{{ equipes.nom }}</option>
+               {% else %}
+                    <option disabled>Aucune equipe disponible</option>
+               {% endfor %}
+           </select>
+           <input type="submit" name="mod_equipe" value="choisir" />
+       </fieldset>
+   </form>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+   <form id="recherche" method="post" class="well" action="index.php?action=valider_recher_matchs">
+   <fieldset class="form-group"> <legend>Rechercher un match</legend>
+        <div class="form-group row">
+            <label for="buts_marques_EV" class="col-sm-2 col-form-label col-form-label-sm">Nombre minimum de buts : </label>
+            <div class="col-sm-10">
+                <input type="number" id="buts_marques_EV" name="buts_min" min="0" class="form-control form-control-sm" placeholder=""/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="date_match" class="col-sm-2 col-form-label col-form-label-sm">Début de la période :</label>
+            <div class="col-sm-10">
+                <input type="date" id="date_match" name="periode_debut" class="form-control form-control-sm" placeholder=""/>
+            </div>
+        </div>
+		<div class="form-group row">
+            <label for="date_match" class="col-sm-2 col-form-label col-form-label-sm">Fin de la période :</label>
+            <div class="col-sm-10">
+                <input type="date" id="date_match" name="periode_fin" class="form-control form-control-sm" placeholder=""/>
+            </div>
+        </div>
+		
+    <input type="submit" name="valider_recher_matchs" value="Rechercher"/>
+   </fieldset>
+   </form>
+
+{% endblock %}

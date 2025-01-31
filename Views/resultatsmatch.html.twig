@@ -1,0 +1,28 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+
+   <h2 class="text-info bg-dark">Résultats de la recherche pour les matchs</h2>
+   <table class="table table-hover table-condensed">
+    <thead>
+		<tr>
+            <th>Nom du match</th>
+			<th>Score Equipe Hote</th>
+			<th>Score Equipe visiteuse</th>
+			<th>Période</th>
+        </tr>
+	</thead>
+    <tbody>
+	
+    {% for matchs in resultats %}
+    	<tr>
+           <td>{{ matchs.nom_match }}</td>
+           <td>{{ matchs.buts_marques_EH }}</td>
+		   <td>{{ matchs.buts_marques_EV }}</td>
+		   <td>{{ matchs.date_match }}</td>
+        </tr>
+    {% endfor %}
+	</tbody>
+	</table>
+
+{% endblock %}

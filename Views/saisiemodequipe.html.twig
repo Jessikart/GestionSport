@@ -1,0 +1,42 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+  <form method="post" action="index.php?action=valider_mod_equipe" class="well">
+			<fieldset class="form-group">
+				<legend>Modification de l'equipe</legend>
+				<div class="form-group row">
+				<label for="nom" class="col-sm-2 col-form-label col-form-label-sm">Nom</label>
+				<div class="col-sm-10">
+					<input  type="text" id="nom" class="form-control form-control-sm" name="nom" required 
+					value="{{ equipes.nom }}" placeholder="nom" />
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="date_de_creation" class="col-sm-2 col-form-label col-form-label-sm">Date</label>
+				<div class="col-sm-10">
+					<input type="date" id="date_de_creation" class="form-control form-control-sm" name="date_de_creation" required 
+					value="{{ equipes.date_de_creation }}" placeholder="date de départ jj/mm/aaaa"/>
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="embleme" class="col-sm-2 col-form-label col-form-label-sm">Embleme</label>
+				<div class="col-sm-10">
+					<input  type="file" id="embleme" class="form-control form-control-sm" name="embleme" required 
+					value="{{ equipes.embleme }}" placeholder="image"accept="image/png,image/jpeg,image/avif"/>
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="entraineur" class="col-sm-2 col-form-label col-form-label-sm">Entraineur</label>
+				<div class="col-sm-10">
+					<input type="text" id="entraineur" class="form-control form-control-sm" name="entraineur" required 
+					value="{{ equipes.entraineur }}" placeholder="entraineur"/>
+				</div>
+				</div>
+				
+				<input type="hidden" id="id_equipe" name="id_equipe" value="{{ equipes.id_equipe }}"/>
+				<input  type="hidden" id="idmembre" name="idmembre" value="11"/>
+				<input type="submit" class="btn btn-primary" name="valider_mod_equipe" value="Modifier"/>
+			</fieldset>
+			</form>
+			
+{% endblock %}

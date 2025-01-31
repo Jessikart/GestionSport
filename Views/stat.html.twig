@@ -1,0 +1,40 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+<div class="container">
+    <h1 class="text-center badge text-bg-primary" style="width: 12rem;">Accueil - Matchs et Statistiques</h1>
+
+    <!-- 📅 Matchs à venir -->
+    <div class="card">
+        <div class="card-header bg-primary text-white">Matchs à venir</div>
+        <div class="card-body">
+            <table class="table table-hover table-condensed">
+			<thead>
+			<tr><th>Equipes</th><th>Dates</th></tr>
+			</thead><tbody>
+                {% for match in matchs %}
+                    <li class="list-group-item">
+                        <tr><td><strong>{{ match.nom_match}}</strong></td><td>
+                        {{ match.date_match }}</tr>
+                    </li>
+                {% endfor %}
+			</tbody></table>
+        </div>
+    </div>
+
+    <!-- 📊 Statistiques des matchs -->
+    <div class="card mt-4">
+        <div class="card-header bg-success text-white">Statistiques des matchs</div>
+        <div class="card-body">
+            <canvas id="statschart"></canvas>
+        </div>
+    </div>
+</div>
+<script>
+    var matchLabels = {{ stats|map(matchs => matchs.equipe_hote ~ " vs " ~ matchs.equipe_visiteuse)|json_encode()|raw }};
+    var matchData = {{ stats|map(matchs => matchs.buts_marques_EH + matchs.buts_marques_EV)|json_encode()|raw }};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./js/statschart.js"></script>
+{% endblock %}

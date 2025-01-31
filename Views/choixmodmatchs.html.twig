@@ -1,0 +1,18 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+   <form method="post" action="index.php?action=mod_matchs" class="well">
+       <fieldset>
+           <legend>Faites votre choix</legend>
+           <select name="id_matchs" class="form-control form-control-sm">
+               {% for matchs in matchs %}
+                   <option value="{{ matchs.id_matchs }}">{{ matchs.nom_match }}</option>
+               {% else %}
+                    <option disabled>Aucun match disponible</option>
+               {% endfor %}
+           </select>
+           <input type="submit" name="mod_matchs" value="choisir" />
+       </fieldset>
+   </form>
+
+{% endblock %}

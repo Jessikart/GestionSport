@@ -1,0 +1,13 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+<table class="table table-hover table-condensed">
+<thead>
+<tr><th>Nom</th><th>Victoires</th><th>Défaites</th></tr>
+</thead><tbody>
+{% for equipes in equipes %}
+    <tr><td>{{ equipes.nom }}</td><td>{{ equipes.victoires }}</td><td>{{ equipes.defaites }}</td></tr>
+{% endfor  %}
+</tbody></table>
+
+{% endblock %}

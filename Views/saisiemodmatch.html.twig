@@ -1,0 +1,70 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+  <form method="post" action="index.php?action=valider_mod_matchs" class="well">
+			<fieldset class="form-group">
+				<legend>Modification du match</legend>
+				<div class="form-group row">
+				<label for="nom_match" class="col-sm-2 col-form-label col-form-label-sm">Nom</label>
+				<div class="col-sm-10">
+					<input  type="text" id="nom_match" class="form-control form-control-sm" name="nom_match" required 
+					value="{{ matchs.nom_match }}" placeholder="nom" />
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="date_match" class="col-sm-2 col-form-label col-form-label-sm">Date</label>
+				<div class="col-sm-10">
+					<input type="date" id="date_match" class="form-control form-control-sm" name="date_match" required 
+					value="{{ matchs.date_match }}" placeholder="jj/mm/aaaa"/>
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="equipe_hote" class="col-sm-2 col-form-label col-form-label-sm">Equipe Hote</label>
+				<div class="col-sm-10">
+					<input  type="text" id="equipe_hote" class="form-control form-control-sm" name="equipe_hote" required 
+					value="{{ matchs.equipe_hote }}" placeholder=""/>
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="equipe_visiteuse" class="col-sm-2 col-form-label col-form-label-sm">Equipe visiteuse</label>
+				<div class="col-sm-10">
+					<input type="text" id="equipe_visiteuse" class="form-control form-control-sm" name="equipe_visiteuse" required 
+					value="{{ matchs.equipe_visiteuse }}" placeholder=""/>
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="buts_marques_EH" class="col-sm-2 col-form-label col-form-label-sm">Nombre de but marqués (EH)</label>
+				<div class="col-sm-10">
+					<input type="number" id="buts_marques_EH" class="form-control form-control-sm" name="buts_marques_EH" required 
+					value="{{ matchs.buts_marques_EH }}" placeholder=""/>
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="buts_marques_EV" class="col-sm-2 col-form-label col-form-label-sm">Nombre de but marqués (EH)</label>
+				<div class="col-sm-10">
+					<input type="number" id="buts_marques_EV" class="form-control form-control-sm" name="buts_marques_EV" required 
+					value="{{ matchs.buts_marques_EV }}" placeholder=""/>
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="lieu" class="col-sm-2 col-form-label col-form-label-sm">Lieu</label>
+				<div class="col-sm-10">
+					<input type="text" id="lieu" class="form-control form-control-sm" name="lieu" required 
+					value="{{ matchs.lieu }}" placeholder=""/>
+				</div>
+				</div>
+				<div class="form-group row">
+				<label for="statut" class="col-sm-2 col-form-label col-form-label-sm">Statut du match</label>
+				<div class="col-sm-10">
+					<input type="text" id="statut" class="form-control form-control-sm" name="statut" required 
+					value="{{ matchs.statut }}" placeholder="En cours ou Terminé"/>
+				</div>
+				</div>
+				<input type="hidden" id="id_matchs" name="id_matchs" value="{{ matchs.id_matchs }}"/>
+				<input  type="hidden" id="equipe_hote" name="equipe_hote" value="{{ matchs.equipe_hote }}"/>
+				<input  type="hidden" id="equipe_visiteuse" name="equipe_visiteuse" value="{{ matchs.equipe_visiteuse }}"/>
+				<input  type="hidden" id="idmembre" name="idmembre" value="11"/>
+				<input type="submit" class="btn btn-primary" name="valider_mod_matchs" value="Modifier"/>
+			</fieldset>
+			</form>
+{% endblock %}
